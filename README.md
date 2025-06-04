@@ -3,7 +3,7 @@
 
 Sistema de gerenciamento para uma academia, implementado em Java com JDBC e MySQL, utilizando Maven como gerenciador de dependências.
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Java 24 (com preview features)**
 - **Maven** - automação de build
