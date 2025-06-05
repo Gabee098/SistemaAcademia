@@ -1,5 +1,5 @@
 
-# AcademiaSystema
+# AcademiaSistema
 
 Sistema de gerenciamento para uma academia, implementado em Java com JDBC e MySQL, utilizando Maven como gerenciador de dependências.
 
