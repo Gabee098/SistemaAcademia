@@ -30,6 +30,11 @@ public class MenuPrincipal {
                     case 1 -> {
                         System.out.print("Nome do Aluno: ");
                         String nome = scanner.nextLine();
+                        nome = nome.trim();
+                        if (nome.isEmpty()) {
+                            System.out.println("Nome não pode ser vazio.");
+                            continue;
+                        }
                         System.out.print("CPF do Aluno: ");
                         String cpf = scanner.nextLine();
                         if (!cpf.matches("\\d{11}")) {
@@ -43,8 +48,18 @@ public class MenuPrincipal {
                         }
                         System.out.print("Telefone do Aluno: ");
                         String telefone = scanner.nextLine();
+                        telefone = telefone.trim();
+                        if (telefone.isEmpty()) {
+                            System.out.println("Telefone não pode ser vazio.");
+                            continue;
+                        }
                         System.out.print("Email do Aluno: ");
                         String email = scanner.nextLine();
+                        email = email.trim();
+                        if (email.isEmpty()) {
+                            System.out.println("Email não pode ser vazio.");
+                            continue;
+                        }
                         System.out.print("Data de Nascimento do Aluno (dd/MM/yyyy): ");
                         String dataNascimentoStr = scanner.nextLine();
                         java.time.LocalDate dataNascimento;
@@ -85,6 +100,10 @@ public class MenuPrincipal {
                         System.out.print("Digite o ID do Aluno: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
+                        if (id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         AlunoDAO alunoDAO = new AlunoDAO();
                         Aluno aluno = alunoDAO.buscarPorId(id);
                         if (aluno != null) {
@@ -108,6 +127,11 @@ public class MenuPrincipal {
                         if (aluno != null) {
                             System.out.print("Novo Nome: ");
                             String nome = scanner.nextLine();
+                            nome = nome.trim();
+                            if (nome.isEmpty()) {
+                                System.out.println("Nome não pode ser vazio.");
+                                continue;
+                            }
                             System.out.print("Novo CPF: ");
                             String cpf = scanner.nextLine();
                             if (!cpf.matches("\\d{11}")) {
@@ -120,8 +144,18 @@ public class MenuPrincipal {
                             }
                             System.out.print("Novo Telefone: ");
                             String telefone = scanner.nextLine();
+                            telefone = telefone.trim();
+                            if (telefone.isEmpty()) {
+                                System.out.println("Telefone não pode ser vazio.");
+                                continue;
+                            }
                             System.out.print("Novo Email: ");
                             String email = scanner.nextLine();
+                            email = email.trim();
+                            if (email.isEmpty()) {
+                                System.out.println("Email não pode ser vazio.");
+                                continue;
+                            }
                             System.out.print("Data de Nascimento do Aluno (dd/MM/yyyy): ");
                             String dataNascimentoStr = scanner.nextLine();
                             java.time.LocalDate dataNascimento;
@@ -149,6 +183,10 @@ public class MenuPrincipal {
                         System.out.print("Digite o ID do Aluno a ser excluído: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
+                        if (id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         AlunoDAO alunoDAO = new AlunoDAO();
                         Aluno aluno = alunoDAO.buscarPorId(id);
                         if (aluno != null) {
@@ -162,13 +200,31 @@ public class MenuPrincipal {
                         System.out.print("ID do Aluno: ");
                         int aluno_id = scanner.nextInt();
                         scanner.nextLine();
+                        if (aluno_id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         System.out.print("Descrição do Treino: ");
                         String descricao = scanner.nextLine();
+                        descricao = descricao.trim();
+                        if (descricao.isEmpty()) {
+                            System.out.println("Descrição não pode ser vazia.");
+                            continue;
+                        }
                         System.out.print("Tipo do Treino: ");
                         String tipo = scanner.nextLine();
+                        tipo = tipo.trim();
+                        if (tipo.isEmpty()) {
+                            System.out.println("Tipo não pode ser vazio.");
+                            continue;
+                        }
                         System.out.println("Qual Durãção do Treino? (em minutos)");
                         int duracao = scanner.nextInt();
                         scanner.nextLine();
+                        if (duracao <= 0) {
+                            System.out.println("Duração inválida.");
+                            continue;
+                        }
                         System.out.print("Data de Início do Treino (dd/MM/yyyy): ");
                         String dataInicioStr = scanner.nextLine();
                         java.time.LocalDate dataInicio;
@@ -189,6 +245,10 @@ public class MenuPrincipal {
                         System.out.print("Digite o ID do Treino: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
+                        if (id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         TreinoDAO treinoDAO = new TreinoDAO();
                         Treino treino = treinoDAO.buscarPorId(id);
                         if (treino != null) {
@@ -207,17 +267,36 @@ public class MenuPrincipal {
                         System.out.print("Digite o ID do Treino a ser atualizado: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
+                        if (id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         TreinoDAO treinoDAO = new TreinoDAO();
                         Treino treino = treinoDAO.buscarPorId(id);
                         if (treino != null) {
                             System.out.print("Nova Descrição: ");
                             String descricao = scanner.nextLine();
+                            descricao = descricao.trim();
+                            if (descricao.isEmpty()) {
+                                System.out.println("Descrição não pode ser vazia.");
+                                continue;
+                            }
                             System.out.print("Novo Tipo: ");
                             String tipo = scanner.nextLine();
+                            tipo = tipo.trim();
+                            if (tipo.isEmpty()) {
+                                System.out.println("Tipo não pode ser vazio.");
+                                continue;
+                            }
                             System.out.print("Nova Duração do Treino (em minutos): ");
                             int duracao = scanner.nextInt();
                             scanner.nextLine();
                             treino.setDuracaoMinutos(duracao);
+                            if (duracao <= 0) {
+                                System.out.println("Duração inválida.");
+                                continue;
+                            }
+
                             System.out.print("Data de Início do Treino (dd/MM/yyyy): ");
                             String dataInicioStr = scanner.nextLine();
                             java.time.LocalDate dataInicio;
@@ -243,6 +322,10 @@ public class MenuPrincipal {
                         System.out.print("Digite o ID do Treino a ser excluído: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
+                        if (id <= 0) {
+                            System.out.println("ID inválido.");
+                            continue;
+                        }
                         TreinoDAO treinoDAO = new TreinoDAO();
                         Treino treino = treinoDAO.buscarPorId(id);
                         if (treino != null) {
